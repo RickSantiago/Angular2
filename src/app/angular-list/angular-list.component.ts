@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { moveis } from './../dados/moveis';
+import { imoveis } from './../dados/imoveis';
 
 @Component({
   selector: 'app-angular-list',
@@ -8,7 +8,7 @@ import { moveis } from './../dados/moveis';
 })
 export class AngularListComponent implements OnInit {
 
-  moveis: Array<any> = moveis;
+  imoveis: Array<any> = imoveis;
 
   constructor() { }
 
