@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { imoveis } from './../dados/imoveis';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-angular-list',
@@ -8,11 +9,13 @@ import { imoveis } from './../dados/imoveis';
 })
 export class AngularListComponent implements OnInit {
 
-  imoveis: Array<any> = imoveis;
+  imoveis: Array<any>;
 
-  constructor() { }
+  constructor(private http: Http)  { }
 
   ngOnInit() {
+    //fazer requisicao http
+    this.http.get('dados/imoveis.json').map(res => res.json()).subscribe(data => console.log(data));
   }
 
 }
