@@ -26,9 +26,16 @@ export class AngularListComponent implements OnInit {
     // error => this.error = error.statusText
     // );
 
+    // Listar atraves da requisicao http que esta instanciado na service
+    // todos os dados que estao respresentado no arquivo.json
     this.imoveisService.getAllImoveis()
-    .subscribe(data => this.imoveis = data,
+    .subscribe(
+    data => this.imoveis = data,
     error => this.error = error.statusText
+    );
+
+    this.imoveisService.novoImovelSubject.subscribe(
+      data => console.log(data)
     );
   }
 

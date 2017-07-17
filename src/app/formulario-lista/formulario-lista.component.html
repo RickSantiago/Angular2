@@ -1,0 +1,96 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Adicionando a lista</h4>
+  </div>
+
+  <div class="panel-body">
+
+    <form #formularioImoveis="ngForm" (ngSubmit)="inserirImovel(formularioImoveis.value)">
+      <div class="form-group col-sm-4">
+        <label for="endereco" class="">Endereço</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Endereço"
+          name="endereco"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="preco" class="">Preço</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Preço"
+          name="preco"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="tipo" class="">Tipo da Propriedade</label>
+        <select
+          name="tipo"
+          id="tipo"
+          class="form-control"
+          ngModel
+          required>
+          <option
+            *ngFor="let tipo of tipoPropriedades"
+            [value]="tipo">
+              {{ tipo }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="descricao" class="">Descrição</label>
+        <textarea
+          type="text"
+          class="form-control"
+          placeholder="Descrição'"
+          name="descricao"
+          ngModel
+          required>
+        </textarea>
+      </div>
+      <div class="form-group col-sm-2">
+        <label for="quartos" class="">Quartos</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Quartos"
+          name="quartos"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-2">
+        <label for="banheiros" class="">Banheiros</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Banheiros"
+          name="banheiros"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-2">
+        <label for="area" class="">Area</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Area"
+          name="area"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-12">
+        <button
+          class="btn btn-primary listing-button"
+          type="submit"
+          ng-show="addListing">
+            Adicionar
+        </button>
+      </div>
+    </form>
+
+  </div>  
+</div>
