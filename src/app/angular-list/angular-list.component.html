@@ -1,3 +1,48 @@
-<div *ngFor="let imovel of imoveis" >
-    <app-imovel-cartao [imovel] = "imovel" class="col-sm-4"></app-imovel-cartao>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-sm-4">
+          <label for="sort-field">Sort By</label>
+          <select 
+            class="form-control" 
+            name="sort-field" 
+            id="sort-field" 
+            [(ngModel)]="sortField">
+            <option 
+              *ngFor="let field of sortFields" 
+              [value]="field">
+                {{ utilService.capitalize(field) }}
+              </option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <label for="sort-direction">Sort Direction</label>
+          <div>
+            
+            <button 
+              class="btn btn-primary"
+              [ngClass]="{'btn-success': sortDirection == 'asc'}"
+              (click)="sortDirection = 'asc'">
+                Asc
+            </button>
+
+            <button
+              class="btn btn-primary"
+              [ngClass]="{'btn-success': sortDirection == 'desc'}"
+              (click)="sortDirection = 'desc'">
+                Desc
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let imovel of imoveis | sortBy: [sortField, sortDirection]" >
+    <app-imovel-cartao [imovel] = "imovel" class="col-sm-3"></app-imovel-cartao>
 </div>
+  <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+</div>
+

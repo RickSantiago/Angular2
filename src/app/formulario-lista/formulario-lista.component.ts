@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { ImoveisService } from './../services/imoveis.service';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-formulario-lista',
@@ -7,6 +8,8 @@ import { ImoveisService } from './../services/imoveis.service';
   styleUrls: ['./formulario-lista.component.css']
 })
 export class FormularioListaComponent implements OnInit {
+
+  @ViewChild('formularioImoveis') formularioImoveis: NgForm;
 
   tipoPropriedades: Array<string> = ['Casa', 'Duplex', 'Condominio', 'Fazenda'];
   constructor(
@@ -18,6 +21,7 @@ export class FormularioListaComponent implements OnInit {
 
   inserirImovel(data): void {
     this.imoveisService.adicionarImovel(data);
+    this.formularioImoveis.reset();
   }
 
 }
