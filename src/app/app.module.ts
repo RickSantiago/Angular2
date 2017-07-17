@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AngularListComponent } from './angular-list/angular-list.component';
 import { ImovelCartaoComponent } from './imovel-cartao/imovel-cartao.component';
+import { ImoveisService } from './services/imoveis.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { ImovelCartaoComponent } from './imovel-cartao/imovel-cartao.component';
     HttpModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [ImoveisService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
