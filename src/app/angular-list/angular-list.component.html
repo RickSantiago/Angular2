@@ -2,8 +2,8 @@
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-body">
-        <div class="col-sm-4">
-          <label for="sort-field">Sort By</label>
+        <div class="col-sm-3">
+          <label for="sort-field">Ordenar Por</label>
           <select 
             class="form-control" 
             name="sort-field" 
@@ -12,12 +12,12 @@
             <option 
               *ngFor="let field of sortFields" 
               [value]="field">
-                {{ utilService.capitalize(field) }}
+                {{ utilsService.capitalize(field) }}
               </option>
           </select>
         </div>
-        <div class="col-sm-4">
-          <label for="sort-direction">Sort Direction</label>
+        <div class="col-sm-3">
+          <label for="sort-direction">Ordenar Direção</label>
           <div>
             
             <button 
